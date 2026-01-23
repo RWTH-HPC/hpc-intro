@@ -68,7 +68,7 @@ manner. Our shell script will have three parts:
   name of the machine the script is run on.
 
 ```bash
-[yourUsername@login1 ~]$ nano example-job.sh
+ab123456@login23-1:~$ nano example-job.sh
 ```
 
 ```bash
@@ -89,11 +89,11 @@ Run the script. Does it execute on the cluster or just our login node?
 ## Solution
 
 ```bash
-[yourUsername@login1 ~]$ bash example-job.sh
+ab123456@login23-1:~$ bash example-job.sh
 ```
 
 ```output
-This script is running on login1
+This script is running on login23-1
 ```
 
 :::::::::::::::::::::::::
@@ -111,7 +111,7 @@ a compute node which the queuing system has identified as being
 available to perform the work.
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+ab123456@login23-1:~$ sbatch  example-job.sh
 ```
 
 
@@ -123,10 +123,10 @@ And that's all we need to do to submit a job. Our work is done -- now the
 scheduler takes over and tries to run the job for us. While the job is waiting
 to run, it goes into a list of jobs called the *queue*. To check on our job's
 status, we check the queue using the command
-`squeue -u yourUsername`.
+`squeue -u $USER`.
 
 ```bash
-[yourUsername@login1 ~]$ squeue -u yourUsername
+ab123456@login23-1:~$ squeue -u $USER
 ```
 
 ```output
@@ -174,7 +174,7 @@ script, but the `-J` option can be used to change the
 name of a job. Add an option to the script:
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+ab123456@login23-1:~$ cat example-job.sh
 ```
 
 ```bash
@@ -188,8 +188,8 @@ hostname
 Submit the job and monitor its status:
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+ab123456@login23-1:~$ sbatch  example-job.sh
+ab123456@login23-1:~$ squeue -u $USER
 ```
 
 ```output
@@ -248,7 +248,7 @@ for it on the cluster.
 ## Solution
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+ab123456@login23-1:~$ cat example-job.sh
 ```
 
 ```bash
@@ -261,7 +261,7 @@ hostname
 ```
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+ab123456@login23-1:~$ sbatch  example-job.sh
 ```
 
 Why are the Slurm runtime and `sleep` time not identical?
@@ -277,7 +277,7 @@ killed. Let's use wall time as an example. We will request 1 minute of
 wall time, and attempt to run a job for two minutes.
 
 ```bash
-[yourUsername@login1 ~]$ cat example-job.sh
+ab123456@login23-1:~$ cat example-job.sh
 ```
 
 ```bash
@@ -294,12 +294,12 @@ Submit the job and wait for it to finish. Once it is has finished, check the
 log file.
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+ab123456@login23-1:~$ sbatch  example-job.sh
+ab123456@login23-1:~$ squeue -u $USER
 ```
 
 ```bash
-[yourUsername@login1 ~]$ cat slurm-12.out
+ab123456@login23-1:~$ cat slurm-12.out
 ```
 
 ```output
@@ -327,8 +327,8 @@ its job number (remember to change the walltime so that it runs long enough for
 you to cancel it before it is killed!).
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ squeue -u yourUsername
+ab123456@login23-1:~$ sbatch  example-job.sh
+ab123456@login23-1:~$ squeue -u $USER
 ```
 
 ```output
@@ -343,9 +343,9 @@ return of your command prompt indicates that the request to cancel the job was
 successful.
 
 ```bash
-[yourUsername@login1 ~]$ scancel 38759
+ab123456@login23-1:~$ scancel 38759
 # It might take a minute for the job to disappear from the queue...
-[yourUsername@login1 ~]$ squeue -u yourUsername
+ab123456@login23-1:~$ squeue -u $USER
 ```
 
 ```output
@@ -369,15 +369,15 @@ Try submitting multiple jobs and then cancelling them all.
 First, submit a trio of jobs:
 
 ```bash
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ sbatch  example-job.sh
-[yourUsername@login1 ~]$ sbatch  example-job.sh
+ab123456@login23-1:~$ sbatch  example-job.sh
+ab123456@login23-1:~$ sbatch  example-job.sh
+ab123456@login23-1:~$ sbatch  example-job.sh
 ```
 
 Then, cancel them all:
 
 ```bash
-[yourUsername@login1 ~]$ scancel -u yourUsername
+ab123456@login23-1:~$ scancel -u ab123456
 ```
 
 :::::::::::::::::::::::::
@@ -393,28 +393,28 @@ There are very frequently tasks that need to be done interactively. Creating an
 entire job script might be overkill, but the amount of resources required is
 too much for a login node to handle. A good example of this might be building a
 genome index for alignment with a tool like [HISAT2][hisat]. Fortunately, we
-can run these types of tasks as a one-off with `srun`.
+can run these types of tasks as a one-off with `salloc`.
 
-`srun` runs a single command on the cluster and then
+`salloc` runs a single command on the cluster and then
 exits. Let's demonstrate this by running the `hostname` command with
-`srun`. (We can cancel an `srun`
+`salloc`. (We can cancel an `salloc`
 job with `Ctrl-c`.)
 
 ```bash
-[yourUsername@login1 ~]$ srun hostname
+ab123456@login23-1:~$ salloc hostname
 ```
 
 ```output
-smnode1
+r23m0055
 ```
 
-`srun` accepts all of the same options as
+`salloc` accepts all of the same options as
 `sbatch`. However, instead of specifying these in a script,
 these options are specified on the command-line when starting a job. To submit
 a job that uses 2 CPUs for instance, we could use the following command:
 
 ```bash
-[yourUsername@login1 ~]$ srun -n 2 echo "This job will use 2 CPUs."
+ab123456@login23-1:~$ salloc -n 2 echo "This job will use 2 CPUs."
 ```
 
 ```output
@@ -430,10 +430,10 @@ Typically, the resulting shell environment will be the same as that for
 Sometimes, you will need a lot of resources for interactive use. Perhaps it's
 our first time running an analysis or we are attempting to debug something that
 went wrong with a previous job. Fortunately, Slurm makes it
-easy to start an interactive job with `srun`:
+easy to start an interactive job with `salloc`:
 
 ```bash
-[yourUsername@login1 ~]$ srun --pty bash
+ab123456@login23-1:~$ salloc --pty bash
 ```
 
 You should be presented with a bash prompt. Note that the prompt will likely
@@ -446,7 +446,7 @@ logged on. You can also verify this with `hostname`.
 
 To see graphical output inside your jobs, you need to use X11 forwarding. To
 connect with this feature enabled, use the `-Y` option when you login with
-the `ssh` command, e.g., `ssh -Y yourUsername@cluster.hpc-carpentry.org`.
+the `ssh` command, e.g., `ssh -Y ab123456@login23-1.hpc.itc.rwth-aachen.de`.
 
 To demonstrate what happens when you create a graphics window on the remote
 node, use the `xeyes` command. A relatively adorable pair of eyes should pop
@@ -456,8 +456,8 @@ XQuartz (and restarted your computer) for this to work.
 If your cluster has the
 [slurm-spank-x11](https://github.com/hautreux/slurm-spank-x11) plugin
 installed, you can ensure X11 forwarding within interactive jobs by using the
-`--x11` option for `srun` with the command
-`srun --x11 --pty bash`.
+`--x11` option for `salloc` with the command
+`salloc --x11 --pty bash`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

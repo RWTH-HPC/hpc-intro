@@ -264,17 +264,17 @@ data.
 
 Say you have a "data" folder containing 10,000 or so files, a healthy mix of
 small and large ASCII and binary data. Which of the following would be the
-best way to transfer them to HPC Carpentry's Cloud Cluster?
+best way to transfer them to Claix-2023?
 
-1. `scp -r data yourUsername@cluster.hpc-carpentry.org:~/`
-2. `rsync -ra data yourUsername@cluster.hpc-carpentry.org:~/`
-3. `rsync -raz data yourUsername@cluster.hpc-carpentry.org:~/`
+1. `scp -r data ab123456@login23-1.hpc.itc.rwth-aachen.de:~/`
+2. `rsync -ra data ab123456@login23-1.hpc.itc.rwth-aachen.de:~/`
+3. `rsync -raz data ab123456@login23-1.hpc.itc.rwth-aachen.de:~/`
 4. `tar -cvf data.tar data;`
 
-   `rsync -raz data.tar yourUsername@cluster.hpc-carpentry.org:~/`
+   `rsync -raz data.tar ab123456@login23-1.hpc.itc.rwth-aachen.de:~/`
 5. `tar -cvzf data.tar.gz data;`
 
-   `rsync -ra data.tar.gz yourUsername@cluster.hpc-carpentry.org:~/`
+   `rsync -ra data.tar.gz ab123456@login23-1.hpc.itc.rwth-aachen.de:~/`
 
 :::::::::::::::  solution
 
