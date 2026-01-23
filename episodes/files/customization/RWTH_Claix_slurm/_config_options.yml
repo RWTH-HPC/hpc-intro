@@ -1,0 +1,67 @@
+# ------------------------
+# Claix Cluster @ RWTH Aachen university
+# ------------------------
+#
+# This is a customization for the Claix Cluster System
+# at RWTH Aachen University.
+#
+# This is a production cluster.
+#
+# Compute responsibly.
+---
+
+snippets: "RWTH_Claix_slurm"
+
+local:
+  prompt: "you@laptop:~$"
+  bash_shebang: "#!/bin/bash"
+
+remote:
+  name: "Claix-2023"
+  login: "login23-1.hpc.itc.rwth-aachen.de"
+  portal: "https://regapp.itc.rwth-aachen.de"
+  host: "login23-1"
+  node: "r23m0055"
+  location: "hpc.itc.rwth-aachen.de"
+  homedir: "/home"
+  user: "ab123456"
+  module_python3: "Python"
+  prompt: "ab123456@login23-1:~$"
+  bash_shebang: "#!/bin/zsh"
+
+sched:
+  name: "Slurm"
+  submit:
+    name: "sbatch"
+    options: ""
+  queue:
+    debug: "r23m0055"
+    testing: "gloom"
+  status: "squeue"
+  flag:
+    user: "-u $USER"
+    interactive: ""
+    histdetail: "-l -j"
+    name: "-J"
+    time: "-t"
+    queue: "-p"
+  del: "scancel"
+  interactive: "salloc"
+  info: "sinfo"
+  comment: "#SBATCH"
+  hist: "sacct -u $USER"
+  hist_filter: ""
+
+episode_order:
+  - 10-hpc-intro
+  - 11-connecting
+  - 12-cluster
+  - 13-scheduler
+  - 14-environment-variables
+  - 15-modules
+  - 16-transferring-files
+  - 17-parallel
+  - 18-resources
+  - 19-responsibility
+
+...
