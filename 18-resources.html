@@ -428,25 +428,24 @@ might have written up guidance for getting the most out of it.</p>
 </div>
 <p>A convenient way of figuring out the resources required for a job to
 run successfully is to submit a test job, and then ask the scheduler
-about its impact using <code>sacct -u yourUsername</code>. You can use
-this knowledge to set up the next job with a closer estimate of its load
-on the system. A good general rule is to ask the scheduler for 20% to
-30% more time and memory than you expect the job to need. This ensures
-that minor fluctuations in run time or memory use will not result in
-your job being cancelled by the scheduler. Keep in mind that if you ask
-for too much, your job may not run even though enough resources are
-available, because the scheduler will be waiting for other people’s jobs
-to finish and free up the resources needed to match what you asked
-for.</p>
+about its impact using <code>sacct -u $USER</code>. You can use this
+knowledge to set up the next job with a closer estimate of its load on
+the system. A good general rule is to ask the scheduler for 20% to 30%
+more time and memory than you expect the job to need. This ensures that
+minor fluctuations in run time or memory use will not result in your job
+being cancelled by the scheduler. Keep in mind that if you ask for too
+much, your job may not run even though enough resources are available,
+because the scheduler will be waiting for other people’s jobs to finish
+and free up the resources needed to match what you asked for.</p>
 </section><section><h2 class="section-heading" id="stats">Stats<a class="anchor" aria-label="anchor" href="#stats"></a></h2>
 <hr class="half-width"><p>Since we already submitted <code>amdahl</code> to run on the cluster,
 we can query the scheduler to see how long our job took and what
-resources were used. We will use <code>sacct -u yourUsername</code> to
-get statistics about <code>parallel-job.sh</code>.</p>
+resources were used. We will use <code>sacct -u $USER</code> to get
+statistics about <code>parallel-job.sh</code>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">[yourUsername@login1</span> ~]$ sacct <span class="at">-u</span> yourUsername</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">ab123456@login23-1:~$</span> sacct <span class="at">-u</span> <span class="va">$USER</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -469,7 +468,7 @@ entries per job). To get info about a specific job (for example,
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">[yourUsername@login1</span> ~]$ sacct <span class="at">-u</span> yourUsername <span class="at">-l</span> <span class="at">-j</span> 347087</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">ab123456@login23-1:~$</span> sacct <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span> <span class="at">-j</span> 347087</span></code></pre>
 </div>
 <p>It will show a lot of info; in fact, every single piece of info
 collected on your job by the scheduler will show up here. It may be
@@ -479,7 +478,7 @@ fields).</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">[yourUsername@login1</span> ~]$ sacct <span class="at">-u</span> yourUsername <span class="at">-l</span> <span class="at">-j</span> 347087 <span class="kw">|</span> <span class="fu">less</span> <span class="at">-S</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">ab123456@login23-1:~$</span> sacct <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span> <span class="at">-j</span> 347087 <span class="kw">|</span> <span class="fu">less</span> <span class="at">-S</span></span></code></pre>
 </div>
 <div id="discussion" class="callout discussion">
 <div class="callout-square">
