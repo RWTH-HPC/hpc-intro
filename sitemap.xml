@@ -22,6 +22,9 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/16-transferring-files.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/16a-filesystems.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/17-parallel.html</loc>
   </url>
   <url>
@@ -71,6 +74,9 @@
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/16-transferring-files.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/16a-filesystems.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/17-parallel.html</loc>

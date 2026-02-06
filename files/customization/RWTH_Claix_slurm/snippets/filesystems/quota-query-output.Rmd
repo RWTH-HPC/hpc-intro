@@ -1,0 +1,8 @@
+```output
+                        ------------ Blocks ------------- ------------- Files -------------
+Object                    used   soft   hard        grace   used   soft   hard        grace
+/home/`r config$remote$user`            259G      -   300G            -  1458K      -  1512K            -
+/work/`r config$remote$user`            174G      -   250G            -   724K      -  1024K            -
+/hpcwork/`r config$remote$user`         679G  1000G  1100G            -    50K  1024K  1088K            -
+/hpcwork/`r config$remote$user`(ssd)     11M  1024M  1024M            -      -      -      -            -
+```

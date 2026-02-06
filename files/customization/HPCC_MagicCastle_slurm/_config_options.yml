@@ -31,6 +31,7 @@ remote:
   shebang: "#!/bin/bash"
   modules:
     python: "Python"
+  quota: "quota"
 
 
 sched:
