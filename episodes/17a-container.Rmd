@@ -119,8 +119,6 @@ From: rockylinux:9
     dnf update
     # install compilers and build environments
     dnf group install "Development Tools"
-    # install wget to download files using HTTP.
-    dnf install wget
     # Clean up any cached information, build files, etc.
     dnf clean all
 
@@ -308,8 +306,8 @@ Note the the `mpiexec` command is external to the call to the container in this 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Containers provide the means to move software installations between HPC systems.
-- Some frameworks are already provided as container images by their vendors.
+- Some frameworks (especially for AI) are already provided as container images by their vendors.
 - Using MPI with containers can be tricky.
-- Choose between "Containerized", "Bind", and "Hybrid" Model depending on your needs.
+- Hybrid model is often the best choice between setup complexity and portability.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
