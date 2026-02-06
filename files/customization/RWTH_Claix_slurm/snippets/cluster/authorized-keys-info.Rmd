@@ -1,0 +1,5 @@
+
+At RWTH Aachen University, authorized keys are **solely handled via the [RegApp](`r config$remote$portal`)**.
+Follow the [instructions on the Cluster Documentation](https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/647539ca0bf64f12b5b5496df69a0298/) to add your public ssh
+keys to your HPC account.
+The contents of `$HOME/.ssh/authorized_keys` will be ignored.

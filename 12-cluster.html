@@ -118,11 +118,11 @@
   Introduction to High-Performance Computing
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 14%" class="percentage">
-    14%
+<aside class="col-md-12 lesson-progress"><div style="width: 11%" class="percentage">
+    11%
   </div>
   <div class="progress carpentries">
-    <div class="progress-bar carpentries" role="progressbar" style="width: 14%" aria-valuenow="14" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar carpentries" role="progressbar" style="width: 11%" aria-valuenow="11" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -293,7 +293,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="18-resources.html">9. Using resources effectively</a>
+        <a href="17a-container.html">9. Using software via containers</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -302,7 +302,16 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="19-responsibility.html">10. Using shared resources responsibly</a>
+        <a href="18-resources.html">10. Using resources effectively</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush12">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading12">
+        <a href="19-responsibility.html">11. Using shared resources responsibly</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -366,7 +375,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Working on a remote HPC system</h1>
-        <p>Last updated on 2026-02-03 |
+        <p>Last updated on 2026-02-06 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/12-cluster.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -518,7 +527,7 @@ neighbors.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> It’s a Beautiful Day in the Neighborhood </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The deepest layer should differ: <code>ab123456</code> is uniquely
 yours. Are there differences in the path at higher levels?</p>
@@ -581,6 +590,21 @@ other factors.</p>
 </div>
 </div>
 </div>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>For CLAIX-2023 the transfer nodes are as follows:</p>
+<ul><li>copy23-1.hpc.itc.rwth-aachen.de</li>
+<li>copy23-2.hpc.itc.rwth-aachen.de</li>
+</ul><p>Please check the presented SSH Key fingerprint against the <a href="https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/0a23d513f31b4cf1849986aaed475789/#fingerprints" class="external-link">fingerprints
+published in our documentation</a></p>
+</div>
+</div>
+</div>
 <p>The real work on a cluster gets done by the <em>worker</em> (or
 <em>compute</em>) <em>nodes</em>. Worker nodes come in many shapes and
 sizes, but generally are dedicated to long or hard tasks that require a
@@ -600,11 +624,57 @@ command <code>sinfo</code>.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>PARTITION          AVAIL  TIMELIMIT  NODES  STATE NODELIST
-cpubase_bycore_b1*    up   infinite      4   idle node[1-2],smnode[1-2]
-node                  up   infinite      2   idle node[1-2]
-smnode                up   infinite      2   idle smnode[1-2]</code></pre>
+<pre class="output" tabindex="0"><code>PARTITION  AVAIL  TIMELIMIT  NODES  STATE NODELIST
+[...]
+devel         up    1:00:00      2    mix n23m0123,r23m0124
+devel_low     up    1:00:00      2    mix n23m0123,r23m0124
+c23ms         up 30-00:00:0    123   mix- n23m[0002-0004,0006,0009-0013,0018-0019,0044,0065,0067,0077-0079,0081-0084,0086-0087,0090,0103,0112,0142,0149,0152,0154,0156-0157,0160,0163,0165,0180,0217-0222,0224,0226-0230,0232,0234-0235,0238,0250,0281,0300,0303,0325,0338,0343,0345,0347-0350,0359,0361-0364,0366-0369,0372,0374,0376,0410],r23m[0007,0016,0022,0025,0027,0029,0031,0033-0036,0039-0042,0099,0101,0103-0104,0106,0109,0111,0113-0115,0117-0118,0138,0142,0151,0163-0164,0166,0175,0177,0180-0182,0184-0187,0190-0192,0201]
+c23ms         up 30-00:00:0      1  comp* n23m0370
+c23ms         up 30-00:00:0      3 drain* n23m0005,r23m[0213,0218]
+c23ms         up 30-00:00:0      1   mix* r23m0096
+c23ms         up 30-00:00:0      1 alloc* r23m0097
+c23ms         up 30-00:00:0      1  down* n23m0213
+c23ms         up 30-00:00:0      6  drain n23m[0164,0247,0309],r23m[0001,0011,0132]
+c23ms         up 30-00:00:0     98    mix n23m[0031-0032,0037,0040,0045,0063,0068,0093,0095-0096,0100,0106,0108-0109,0114,0118,0122,0126,0138,0169-0170,0173,0176,0178-0179,0182,0190-0191,0198-0199,0211-0212,0214,0239-0240,0242,0244,0248,0251,0254,0257,0260,0269,0273,0283,0286-0287,0294,0297,0302,0307,0311,0313,0316-0318,0329-0330,0336,0341-0342,0351,0395,0397,0406-0407],r23m[0012,0017,0023-0024,0045-0046,0056,0060-0061,0063,0066-0068,0070,0075,0077,0089,0098,0125,0133,0135,0149,0155,0159,0168,0171,0197,0199,0202,0208,0214,0216]
+c23ms         up 30-00:00:0    391  alloc n23m[0001,0007-0008,0014-0017,0020-0030,0033-0036,0038-0039,0041-0043,0046-0062,0064,0066,0069-0076,0080,0085,0088-0089,0091-0092,0094,0097-0099,0101-0102,0104-0105,0107,0110-0111,0113,0115-0117,0119-0121,0124-0125,0127-0137,0139-0141,0143-0148,0150-0151,0153,0155,0158-0159,0161-0162,0166-0168,0171-0172,0174-0175,0177,0181,0183-0189,0192-0197,0200-0210,0215-0216,0223,0225,0231,0233,0236-0237,0241,0243,0245-0246,0249,0252-0253,0255-0256,0258-0259,0261-0268,0270-0272,0274-0280,0282,0284-0285,0288-0293,0295-0296,0298-0299,0301,0304-0306,0308,0310,0312,0314-0315,0319-0324,0326-0328,0331-0335,0337,0339-0340,0344,0346,0352-0358,0360,0365,0371,0373,0375,0377-0394,0396,0398-0405,0408-0409],r23m[0002-0006,0008-0010,0013-0015,0018-0021,0026,0028,0030,0032,0037-0038,0043-0044,0047-0055,0057-0059,0062,0064-0065,0069,0071-0074,0076,0078-0088,0090-0095,0100,0102,0105,0107-0108,0110,0112,0116,0119-0123,0126-0131,0134,0136-0137,0139-0141,0143-0148,0150,0152-0154,0156-0158,0160-0162,0165,0167,0169-0170,0172-0174,0176,0178-0179,0183,0188-0189,0195-0196,0198,0200,0203-0207,0209-0212,0215,0217,0219]
+c23ms_low     up 30-00:00:0    123   mix- n23m[0002-0004,0006,0009-0013,0018-0019,0044,0065,0067,0077-0079,0081-0084,0086-0087,0090,0103,0112,0142,0149,0152,0154,0156-0157,0160,0163,0165,0180,0217-0222,0224,0226-0230,0232,0234-0235,0238,0250,0281,0300,0303,0325,0338,0343,0345,0347-0350,0359,0361-0364,0366-0369,0372,0374,0376,0410],r23m[0007,0016,0022,0025,0027,0029,0031,0033-0036,0039-0042,0099,0101,0103-0104,0106,0109,0111,0113-0115,0117-0118,0138,0142,0151,0163-0164,0166,0175,0177,0180-0182,0184-0187,0190-0192,0201]
+c23ms_low     up 30-00:00:0      1  comp* n23m0370
+c23ms_low     up 30-00:00:0      3 drain* n23m0005,r23m[0213,0218]
+c23ms_low     up 30-00:00:0      1   mix* r23m0096
+c23ms_low     up 30-00:00:0      1 alloc* r23m0097
+c23ms_low     up 30-00:00:0      1  down* n23m0213
+c23ms_low     up 30-00:00:0      6  drain n23m[0164,0247,0309],r23m[0001,0011,0132]
+c23ms_low     up 30-00:00:0     98    mix n23m[0031-0032,0037,0040,0045,0063,0068,0093,0095-0096,0100,0106,0108-0109,0114,0118,0122,0126,0138,0169-0170,0173,0176,0178-0179,0182,0190-0191,0198-0199,0211-0212,0214,0239-0240,0242,0244,0248,0251,0254,0257,0260,0269,0273,0283,0286-0287,0294,0297,0302,0307,0311,0313,0316-0318,0329-0330,0336,0341-0342,0351,0395,0397,0406-0407],r23m[0012,0017,0023-0024,0045-0046,0056,0060-0061,0063,0066-0068,0070,0075,0077,0089,0098,0125,0133,0135,0149,0155,0159,0168,0171,0197,0199,0202,0208,0214,0216]
+c23ms_low     up 30-00:00:0    391  alloc n23m[0001,0007-0008,0014-0017,0020-0030,0033-0036,0038-0039,0041-0043,0046-0062,0064,0066,0069-0076,0080,0085,0088-0089,0091-0092,0094,0097-0099,0101-0102,0104-0105,0107,0110-0111,0113,0115-0117,0119-0121,0124-0125,0127-0137,0139-0141,0143-0148,0150-0151,0153,0155,0158-0159,0161-0162,0166-0168,0171-0172,0174-0175,0177,0181,0183-0189,0192-0197,0200-0210,0215-0216,0223,0225,0231,0233,0236-0237,0241,0243,0245-0246,0249,0252-0253,0255-0256,0258-0259,0261-0268,0270-0272,0274-0280,0282,0284-0285,0288-0293,0295-0296,0298-0299,0301,0304-0306,0308,0310,0312,0314-0315,0319-0324,0326-0328,0331-0335,0337,0339-0340,0344,0346,0352-0358,0360,0365,0371,0373,0375,0377-0394,0396,0398-0405,0408-0409],r23m[0002-0006,0008-0010,0013-0015,0018-0021,0026,0028,0030,0032,0037-0038,0043-0044,0047-0055,0057-0059,0062,0064-0065,0069,0071-0074,0076,0078-0088,0090-0095,0100,0102,0105,0107-0108,0110,0112,0116,0119-0123,0126-0131,0134,0136-0137,0139-0141,0143-0148,0150,0152-0154,0156-0158,0160-0162,0165,0167,0169-0170,0172-0174,0176,0178-0179,0183,0188-0189,0195-0196,0198,0200,0203-0207,0209-0212,0215,0217,0219]
+c23mm         up 30-00:00:0     97   mix- n23m[0002-0004,0006,0009-0013,0018-0019,0077-0079,0081-0084,0086-0087,0090,0149,0152,0154,0156-0157,0160,0163,0217-0222,0224,0226-0230,0232,0234-0235,0343,0345,0347-0350,0359,0361-0364,0366-0369,0372,0374,0376,0410],r23m[0027,0029,0031,0033-0036,0039-0042,0099,0101,0103-0104,0106,0109,0111,0113-0115,0117-0118,0175,0177,0180-0182,0184-0187,0190-0192]
+c23mm         up 30-00:00:0      1  comp* n23m0370
+c23mm         up 30-00:00:0      1 drain* n23m0005
+c23mm         up 30-00:00:0      1  drain n23m0164
+c23mm         up 30-00:00:0     65  alloc n23m[0001,0007-0008,0014-0017,0020,0073-0076,0080,0085,0088-0089,0091-0092,0145-0148,0150-0151,0153,0155,0158-0159,0161-0162,0223,0225,0231,0233,0236,0289-0290,0344,0346,0360,0365,0371,0373,0375,0377-0378,0409],r23m[0028,0030,0037-0038,0100,0102,0105,0107-0108,0110,0112,0116,0176,0178-0179,0183,0188-0189]
+c23mm_low     up 30-00:00:0     97   mix- n23m[0002-0004,0006,0009-0013,0018-0019,0077-0079,0081-0084,0086-0087,0090,0149,0152,0154,0156-0157,0160,0163,0217-0222,0224,0226-0230,0232,0234-0235,0343,0345,0347-0350,0359,0361-0364,0366-0369,0372,0374,0376,0410],r23m[0027,0029,0031,0033-0036,0039-0042,0099,0101,0103-0104,0106,0109,0111,0113-0115,0117-0118,0175,0177,0180-0182,0184-0187,0190-0192]
+c23mm_low     up 30-00:00:0      1  comp* n23m0370
+c23mm_low     up 30-00:00:0      1 drain* n23m0005
+c23mm_low     up 30-00:00:0      1  drain n23m0164
+c23mm_low     up 30-00:00:0     65  alloc n23m[0001,0007-0008,0014-0017,0020,0073-0076,0080,0085,0088-0089,0091-0092,0145-0148,0150-0151,0153,0155,0158-0159,0161-0162,0223,0225,0231,0233,0236,0289-0290,0344,0346,0360,0365,0371,0373,0375,0377-0378,0409],r23m[0028,0030,0037-0038,0100,0102,0105,0107-0108,0110,0112,0116,0176,0178-0179,0183,0188-0189]
+c23ml         up 30-00:00:0      2  alloc n23m[0289-0290]
+c23ml_low     up 30-00:00:0      2  alloc n23m[0289-0290]
+c23g          up 30-00:00:0     30   mix- n23g[0001,0003-0004,0006,0009,0011-0017,0020-0024,0026-0027],r23g[0002-0003,0005],w23g[0002,0004-0010]
+c23g          up 30-00:00:0      2 drain$ n23g[0028-0029]
+c23g          up 30-00:00:0      2  drain n23g0030,w23g0001
+c23g          up 30-00:00:0      3   resv w23g[0012-0014]
+c23g          up 30-00:00:0      2    mix n23g0031,w23g0011
+c23g          up 30-00:00:0     11  alloc n23g[0002,0005,0007-0008,0010,0018-0019,0025],r23g[0001,0004],w23g0003
+c23g_low      up 30-00:00:0     30   mix- n23g[0001,0003-0004,0006,0009,0011-0017,0020-0024,0026-0027],r23g[0002-0003,0005],w23g[0002,0004-0010]
+c23g_low      up 30-00:00:0      2 drain$ n23g[0028-0029]
+c23g_low      up 30-00:00:0      2  drain n23g0030,w23g0001
+c23g_low      up 30-00:00:0      3   resv w23g[0012-0014]
+c23g_low      up 30-00:00:0      2    mix n23g0031,w23g0011
+c23g_low      up 30-00:00:0     11  alloc n23g[0002,0005,0007-0008,0010,0018-0019,0025],r23g[0001,0004],w23g0003
+c23i          up 30-00:00:0      1   idle n23i0001
+[...]</code></pre>
 </div>
+<p>::: callout The list of partitions above is truncated to the most
+relevant for standard users.</p>
 <p>There are also specialized machines used for managing disk storage,
 user authentication, and other infrastructure-related tasks. Although we
 do not typically logon to or interact with these machines directly, they
@@ -649,7 +719,7 @@ computer cluster, you need to log out first. To do so, type
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>There are several ways to do this. Most operating systems have a
 graphical system monitor, like the Windows Task Manager. More detailed
@@ -697,7 +767,7 @@ node.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -885,8 +955,8 @@ network mounted filesystems, etc.).”</li>
   "url": "https://carpentries-incubator.github.io/hpc-intro/12-cluster.html",
   "identifier": "https://carpentries-incubator.github.io/hpc-intro/12-cluster.html",
   "dateCreated": "2017-03-24",
-  "dateModified": "2026-02-03",
-  "datePublished": "2026-02-03"
+  "dateModified": "2026-02-06",
+  "datePublished": "2026-02-06"
 }
 
   </script><script>

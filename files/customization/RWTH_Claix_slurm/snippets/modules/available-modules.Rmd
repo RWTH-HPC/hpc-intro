@@ -1,0 +1,50 @@
+```bash
+`r config$remote$prompt` module avail
+```
+
+```output
+
+---------------------------------------------- Global Aliases -----------------------------------------------
+   NHRDEFAULT       -> (N/A)          blas     -> imkl/2024.2.0               mpi -> impi/2021.13.0
+   NHRDEFAULT/2024a -> intel/2024a    compiler -> intel-compilers/2024.2.0
+
+------------------------------------------- MPI dependent Modules -------------------------------------------
+   arpack-ng/3.7.0              Marc/2024.1                Score-P/9.2
+   darshan-runtime/3.4.4        MUST/1.11.0                Score-P/9.3-CUDA-12.6.3
+   darshan-runtime/3.5.0 (D)    OpenMolcas/24.10           Score-P/9.3
+   ELPA/2024.05.001             OTF-CPT/0.9-ab356ce        Score-P/9.4-CUDA-12.6.3
+   FFTW/3.3.10           (D)    OTF-CPT/0.9-fc30f66        Score-P/9.4             (D)
+   GlobalArrays/5.8.2           OTF-CPT/0.9-7ac73ab        VASP/5.4.4pl2
+   HDF5/1.14.5                  OTF-CPT/0.9.1       (D)    VASP/6.4.3              (D)
+   Hypre/2.32.0                 PnetCDF/1.14.0             VASP/6.5.1
+   imkl-FFTW/2024.2.0    (L)    Scalasca/2.6.2             Wannier90/3.1.0
+   libbeef/0.1.2                Score-P/8.4                WannierTools/2.7.0
+
+---------------------------------------- Compiler dependent Modules -----------------------------------------
+   Abseil/20240722.0                 gnuplot/5.4.8                    occt/7.9.2
+   absl-py/2.1.0                     gnuplot/6.0.1           (D)      OPARI2/2.0.8
+   archspec/0.2.4                    GOTCHA/1.0.8                     OPARI2/2.0.9                (D)
+   assimp/5.4.3                      gperf/3.1                        OpenJPEG/2.5.2
+   at-spi2-atk/2.38.0                Graphene/1.10.8                  OpenMPI/5.0.3               (M)
+   at-spi2-core/2.54.0               Graphviz/12.2.0-minimal          optree/0.14.1
+
+[removed most of the output here for clarity]
+
+  Where:
+   L:        Module is loaded
+   TC:          Toolchain, comprising a compiler, possibly an MPI implementation, and optional mathematical libraries
+   C:           Compiler
+   M:           MPI implementation
+   m:           Mathematical libraries
+   Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
+   D:        Default Module
+   N/A:      Alias cannot be loaded with current $MODULEPATH
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+```

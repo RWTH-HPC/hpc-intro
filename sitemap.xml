@@ -25,6 +25,9 @@
     <loc>https://carpentries-incubator.github.io/hpc-intro/17-parallel.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/17a-container.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/18-resources.html</loc>
   </url>
   <url>
@@ -71,6 +74,9 @@
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/17-parallel.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/17a-container.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/hpc-intro/instructor/18-resources.html</loc>
