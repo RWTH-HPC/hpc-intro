@@ -490,9 +490,9 @@ to keep the container as broadly useable as possible.</p>
 <h3 id="containers-should-be-stateless">Containers should be stateless<a class="anchor" aria-label="anchor" href="#containers-should-be-stateless"></a></h3>
 <p>State is additional information that might be used for execution of
 the containerized software. The container image should only change with
-version updates to the containerized software. Updating However, when
-the container is supposed to be used in many different scenarios, it is
-best to use so-called <strong>bindpaths</strong> to pass such additional
+version updates to the containerized software. However, when the
+container is supposed to be used in many different scenarios, it is best
+to use so-called <strong>bindpaths</strong> to pass such additional
 information in to the container environment.</p>
 <div id="callout3" class="callout">
 <div class="callout-square">
@@ -717,17 +717,17 @@ two.</p>
 </div>
 </div>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="building-a-container-for-amdahl" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<div id="building-a-container-for-amdahl" class="callout-inner">
+<h3 class="callout-title">Building a container for Amdahl</h3>
 <div class="callout-content">
 <p>Create a container for the Amdahl Python application and run it on
-the cluster. Use the following template for a hybrid model
-container.</p>
+the cluster. Use <a href="files/amdahl-hybrid-template.def">the
+following template</a> for a hybrid model container.</p>
 </div>
 </div>
 </div>
@@ -738,7 +738,48 @@ container.</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<p>tbd.</p>
+<p>You have to modify the template in three ways.</p>
+<ol style="list-style-type: decimal"><li>Install your own Python3 and the pip package manager (to take care
+of dependencies) in line 35 of the template:
+<code>sh     dnf install python3 python3-pip</code>
+</li>
+<li>Install amdahl directly from pip in line 38 of the template:
+<code>sh     python3 -m pip install amdahl</code>
+</li>
+<li>configure the call to amdahl as the default execution for
+<code>apptainer run</code> in line 42 of the template:
+<code>sh     exec mpiexec "$@" /usr/bin/amdahl</code>
+</li>
+</ol><p>You can find a <a href="files/amdahl-hybrid.def">full working
+container definition here</a>.</p>
+<p>After building the container with</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> apptainer build amdahl-hybrid.sif amdahl-hybrid.def</span></code></pre>
+</div>
+<p>you can run the amdahl in the container with</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> mpiexec <span class="at">-n</span> 4 amdahl-hybrid.sif</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Doing 30.000000 seconds of 'work' on 4 processors,
+ which should take 12.000000 seconds with 0.800000 parallel proportion of the workload.
+
+  Hello, World! I am process 0 of 4 on login23-4.hpc.itc.rwth-aachen.de. I will do all the serial 'work' for 5.133500 seconds.
+  Hello, World! I am process 0 of 4 on login23-4.hpc.itc.rwth-aachen.de. I will do parallel 'work' for 4.803776 seconds.
+  Hello, World! I am process 2 of 4 on login23-4.hpc.itc.rwth-aachen.de. I will do parallel 'work' for 4.952259 seconds.
+  Hello, World! I am process 1 of 4 on login23-4.hpc.itc.rwth-aachen.de. I will do parallel 'work' for 6.485180 seconds.
+  Hello, World! I am process 3 of 4 on login23-4.hpc.itc.rwth-aachen.de. I will do parallel 'work' for 5.969295 seconds.
+
+Total execution time (according to rank 0): 9.961281 seconds</code></pre>
+</div>
+<p>Note the the <code>mpiexec</code> command is external to the call to
+the container in this hybrid setup.</p>
 </div>
 </div>
 </div>
