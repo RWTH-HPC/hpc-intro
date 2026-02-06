@@ -129,6 +129,7 @@ status, we check the queue using the command
 ab123456@login23-1:~$ squeue -u $USER
 ```
 
+
 ```output
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
     9 cpubase_b example-   user01  R       0:05      1 node1

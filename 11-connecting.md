@@ -42,9 +42,9 @@ machine sends back. We will use the Secure SHell protocol (or SSH) to open an
 encrypted network connection between two machines, allowing you to send \&
 receive text and data without having to worry about prying eyes.
 
-![connect-to-remote.svg](fig/connect-to-remote.svg){
+![Connecting to a cluster via the internet or network.](fig/connect-to-remote.svg){
   max-width="50%"
-  alt="Connect to cluster. "
+  alt="Connect to cluster via the internet or network. "
 }
 
 SSH clients are usually command-line tools, where you provide the remote
@@ -62,7 +62,7 @@ these situations, the likelihood of somebody else intercepting your password is
 low, since logging your keystrokes requires a malicious exploit or physical
 access. For systems like `login23-1` running an SSH server, anybody
 on the network can log in, or try to. Since usernames are often public or easy
-to guess, your password is often the weakest link in the security chain. Many
+to guess, **your password is often the weakest link in the security chain**. Many
 clusters therefore forbid password-based login, requiring instead that you
 generate and configure a public-private key pair with a much stronger password.
 Even if your cluster does not require it, the next section will guide you
@@ -195,7 +195,7 @@ Take a look in `~/.ssh` (use `ls ~/.ssh`). You should see two new files:
 - the shareable public key (`~/.ssh/id_rsa.pub`): if a system administrator
   asks for a key, this is the one to send. It is also safe to upload to
   websites such as GitHub: it is meant to be seen.
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -243,30 +243,30 @@ you@laptop:~$ ssh-add -l
 ```
 
 - If you get an error like this one,
-  
+
   ```error
   Error connecting to agent: No such file or directory
   ```
-  
+
   ... then you need to launch the agent as follows:
-  
+
   ```bash
   you@laptop:~$ eval $(ssh-agent)
   ```
-  
+
   :::::::::::::::::::::::::::::::::::::::::  callout
-  
+
   ## What's in a `$(...)`?
-  
+
   The syntax of this SSH Agent command is unusual, based on what we've seen
   in the UNIX Shell lesson. This is because the `ssh-agent` command creates
   opens a connection that only you have access to, and prints a series of
   shell commands that can be used to reach it -- but *does not execute them!*
-  
+
   ```bash
   you@laptop:~$ ssh-agent
   ```
-  
+
   ```output
   SSH_AUTH_SOCK=/tmp/ssh-Zvvga2Y8kQZN/agent.131521;
   export SSH_AUTH_SOCK;
@@ -274,14 +274,14 @@ you@laptop:~$ ssh-add -l
   export SSH_AGENT_PID;
   echo Agent pid 131522;
   ```
-  
+
   The `eval` command interprets this text output as commands and allows you
   to access the SSH Agent connection you just created.
-  
+
   You could run each line of the `ssh-agent` output yourself, and
   achieve the same result. Using `eval` just makes this easier.
-  
-  
+
+
   ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 - Otherwise, your agent is already running: don't mess with it.
@@ -293,7 +293,7 @@ you@laptop:~$ ssh-add -t 8h ~/.ssh/id_ed25519
 ```
 
 ```output
-Enter passphrase for .ssh/id_ed25519: 
+Enter passphrase for .ssh/id_ed25519:
 Identity added: .ssh/id_ed25519
 Lifetime set to 86400 seconds
 ```

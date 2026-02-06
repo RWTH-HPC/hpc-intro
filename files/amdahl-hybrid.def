@@ -12,11 +12,16 @@ From: rockylinux:9
     export MANPATH="$OMPI_DIR/share/man:$MANPATH"
 
 %post
-    echo "Installing required packages..."
+     echo "Installing required packages..."
+    # configure package manager to work non-interactive and speed up package download
     printf '%s\n' 'assumeyes=true' 'max_parallel_downloads=15' >> /etc/dnf/dnf.conf
+    # update package information
     dnf update
+    # install compilers and build environments
     dnf group install "Development Tools"
+    # install wget to download sources via HTTP
     dnf install wget
+    # Clean up andy cached information, build files, etc.
     dnf clean all
 
     echo "Installing Open MPI"
@@ -25,10 +30,11 @@ From: rockylinux:9
     export OMPI_URL="https://download.open-mpi.org/release/open-mpi/v${OMPI_VERSION:0:3}/openmpi-$OMPI_VERSION.tar.bz2"
     mkdir -p /tmp/ompi
     mkdir -p /opt
-    # Download
+    # Download and extract Open-MPI tarball
     cd /tmp/ompi && wget -O openmpi-$OMPI_VERSION.tar.bz2 $OMPI_URL && tar -xjf openmpi-$OMPI_VERSION.tar.bz2
-    # Compile and install
+    # Compile and install; default configure sill suffice as we plan to use the Open-MPI installed on the host
     cd /tmp/ompi/openmpi-$OMPI_VERSION && ./configure --prefix=$OMPI_DIR
+    # Build in parallel
     make -j8 install
 
     # Install Python3 and pip
