@@ -114,7 +114,7 @@ if (!is.null(custom_config_file)) {
   custom_config <- result$config
 
   # merge: custom overrides default
-  config <- modifyList(config, custom_config)
+  config <- utils::modifyList(config, custom_config)
 
   # snippet directory for custom configs does NOT have to exist
   main_snippets <- get_snippet_subdir(

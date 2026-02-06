@@ -69,6 +69,8 @@ Even if your cluster does not require it, the next section will guide you
 through the use of SSH keys and an SSH agent to both strengthen your security
 *and* make it more convenient to log in to remote systems.
 
+
+
 ### Better Security With SSH Keys
 
 The [Lesson Setup](../learners/setup.md) provides instructions for installing
@@ -409,6 +411,13 @@ Policies and practices for handling SSH keys vary between HPC clusters:
 follow any guidance provided by the cluster administrators or
 documentation. In particular, if there is an online portal for managing SSH
 keys, use that instead of the directions outlined here.
+
+
+At RWTH Aachen University, authorized keys are **solely handled via the [RegApp](https://regapp.itc.rwth-aachen.de)**.
+Follow the [instructions on the Cluster Documentation](https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/647539ca0bf64f12b5b5496df69a0298/) to add your public ssh
+keys to your HPC account.
+The contents of `$HOME/.ssh/authorized_keys` will be ignored.
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 If you transferred your SSH public key with `scp`, you should see

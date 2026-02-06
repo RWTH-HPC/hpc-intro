@@ -78,28 +78,54 @@ To see available software modules, use `module avail`:
 
 
 ```bash
-ab123456@login23-1:~$ module avail | less
+ab123456@login23-1:~$ module avail
 ```
 
 ```output
-~~~ /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/modules/all ~~~
-  Bazel/3.6.0-GCCcore-x.y.z              NSS/3.51-GCCcore-x.y.z
-  Bison/3.5.3-GCCcore-x.y.z              Ninja/1.10.0-GCCcore-x.y.z
-  Boost/1.72.0-gompi-2020a               OSU-Micro-Benchmarks/5.6.3-gompi-2020a
-  CGAL/4.14.3-gompi-2020a-Python-3.x.y   OpenBLAS/0.3.9-GCC-x.y.z
-  CMake/3.16.4-GCCcore-x.y.z             OpenFOAM/v2006-foss-2020a
+
+---------------------------------------------- Global Aliases -----------------------------------------------
+   NHRDEFAULT       -> (N/A)          blas     -> imkl/2024.2.0               mpi -> impi/2021.13.0
+   NHRDEFAULT/2024a -> intel/2024a    compiler -> intel-compilers/2024.2.0
+
+------------------------------------------- MPI dependent Modules -------------------------------------------
+   arpack-ng/3.7.0              Marc/2024.1                Score-P/9.2
+   darshan-runtime/3.4.4        MUST/1.11.0                Score-P/9.3-CUDA-12.6.3
+   darshan-runtime/3.5.0 (D)    OpenMolcas/24.10           Score-P/9.3
+   ELPA/2024.05.001             OTF-CPT/0.9-ab356ce        Score-P/9.4-CUDA-12.6.3
+   FFTW/3.3.10           (D)    OTF-CPT/0.9-fc30f66        Score-P/9.4             (D)
+   GlobalArrays/5.8.2           OTF-CPT/0.9-7ac73ab        VASP/5.4.4pl2
+   HDF5/1.14.5                  OTF-CPT/0.9.1       (D)    VASP/6.4.3              (D)
+   Hypre/2.32.0                 PnetCDF/1.14.0             VASP/6.5.1
+   imkl-FFTW/2024.2.0    (L)    Scalasca/2.6.2             Wannier90/3.1.0
+   libbeef/0.1.2                Score-P/8.4                WannierTools/2.7.0
+
+---------------------------------------- Compiler dependent Modules -----------------------------------------
+   Abseil/20240722.0                 gnuplot/5.4.8                    occt/7.9.2
+   absl-py/2.1.0                     gnuplot/6.0.1           (D)      OPARI2/2.0.8
+   archspec/0.2.4                    GOTCHA/1.0.8                     OPARI2/2.0.9                (D)
+   assimp/5.4.3                      gperf/3.1                        OpenJPEG/2.5.2
+   at-spi2-atk/2.38.0                Graphene/1.10.8                  OpenMPI/5.0.3               (M)
+   at-spi2-core/2.54.0               Graphviz/12.2.0-minimal          optree/0.14.1
 
 [removed most of the output here for clarity]
 
   Where:
    L:        Module is loaded
+   TC:          Toolchain, comprising a compiler, possibly an MPI implementation, and optional mathematical libraries
+   C:           Compiler
+   M:           MPI implementation
+   m:           Mathematical libraries
+   Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
    D:        Default Module
-   Aliases exist: foo/1.2.3 (1.2) means that
-             "module load foo/1.2" will load foo/1.2.3
+   N/A:      Alias cannot be loaded with current $MODULEPATH
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
 
 Use "module spider" to find all possible modules and extensions.
-Use "module keyword key1 key2 ..." to search for all possible modules matching
-any of the "keys".
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 ```
 
 Note that piping the output through `less` allows us to search within the output using the <kbd>/</kbd> key.
@@ -118,6 +144,24 @@ ab123456@login23-1:~$ module list
 No Modulefiles Currently Loaded.
 ```
 
+
+On some systems, such as the systems at RWTH Aachen University, some
+default modules are automatically loaded for you at login and the 
+output may look like the following.
+
+```output
+Currently Loaded Modules:
+  1) GCCcore/13.3.0 (C)   4) intel-compilers/2024.2.0 (C)   7) imkl-FFTW/2024.2.0
+  2) zlib/1.3.1           5) impi/2021.13.0           (M)   8) NHRDEFAULT/2024a -> intel/2024a (TC)
+  3) binutils/2.42        6) imkl/2024.2.0            (m)
+
+  Where:
+   TC:          Toolchain, comprising a compiler, possibly an MPI implementation, and optional mathematical libraries
+   C:           Compiler
+   M:           MPI implementation
+   m:           Mathematical libraries
+```
+
 ## Loading and Unloading Software
 
 To load a software module, use `module load`.
@@ -132,36 +176,12 @@ ab123456@login23-1:~$ which python3
 ```
 
 
-If the `python3` command was unavailable, we would see output like
-
-```output
-/usr/bin/which: no python3 in (/cvmfs/pilot.eessi-hpc.org/2020.12/compat/linux/x86_64/usr/bin:/opt/software/slurm/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ab123456/.local/bin:/home/ab123456/bin)
-```
-
-Note that this wall of text is really a list, with values separated
-by the `:` character. The output is telling us that the `which` command
-searched the following directories for `python3`, without success:
-
-```output
-/cvmfs/pilot.eessi-hpc.org/2020.12/compat/linux/x86_64/usr/bin
-/opt/software/slurm/bin
-/usr/local/bin
-/usr/bin
-/usr/local/sbin
-/usr/sbin
-/opt/puppetlabs/bin
-/home/ab123456/.local/bin
-/home/ab123456/bin
-```
-
-However, in our case we do have an existing `python3` available so we see
-
-```output
-/cvmfs/pilot.eessi-hpc.org/2020.12/compat/linux/x86_64/usr/bin/python3
-```
-
-We need a different Python than the system provided one though, so let us load
-a module to access it.
+::: callout
+Sometimes there is a Python interpreter installed to support administrative
+scripts on the nodes without the need to load extra software. However, the
+version of it may be very old and may not be stable (in case you are relying on
+special Python features).
+:::
 
 We can load the `python3` command with `module load`:
 
@@ -331,28 +351,54 @@ there may be reams of output:
 
 
 ```bash
-ab123456@login23-1:~$ module avail | less
+ab123456@login23-1:~$ module avail
 ```
 
 ```output
-~~~ /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/modules/all ~~~
-  Bazel/3.6.0-GCCcore-x.y.z              NSS/3.51-GCCcore-x.y.z
-  Bison/3.5.3-GCCcore-x.y.z              Ninja/1.10.0-GCCcore-x.y.z
-  Boost/1.72.0-gompi-2020a               OSU-Micro-Benchmarks/5.6.3-gompi-2020a
-  CGAL/4.14.3-gompi-2020a-Python-3.x.y   OpenBLAS/0.3.9-GCC-x.y.z
-  CMake/3.16.4-GCCcore-x.y.z             OpenFOAM/v2006-foss-2020a
+
+---------------------------------------------- Global Aliases -----------------------------------------------
+   NHRDEFAULT       -> (N/A)          blas     -> imkl/2024.2.0               mpi -> impi/2021.13.0
+   NHRDEFAULT/2024a -> intel/2024a    compiler -> intel-compilers/2024.2.0
+
+------------------------------------------- MPI dependent Modules -------------------------------------------
+   arpack-ng/3.7.0              Marc/2024.1                Score-P/9.2
+   darshan-runtime/3.4.4        MUST/1.11.0                Score-P/9.3-CUDA-12.6.3
+   darshan-runtime/3.5.0 (D)    OpenMolcas/24.10           Score-P/9.3
+   ELPA/2024.05.001             OTF-CPT/0.9-ab356ce        Score-P/9.4-CUDA-12.6.3
+   FFTW/3.3.10           (D)    OTF-CPT/0.9-fc30f66        Score-P/9.4             (D)
+   GlobalArrays/5.8.2           OTF-CPT/0.9-7ac73ab        VASP/5.4.4pl2
+   HDF5/1.14.5                  OTF-CPT/0.9.1       (D)    VASP/6.4.3              (D)
+   Hypre/2.32.0                 PnetCDF/1.14.0             VASP/6.5.1
+   imkl-FFTW/2024.2.0    (L)    Scalasca/2.6.2             Wannier90/3.1.0
+   libbeef/0.1.2                Score-P/8.4                WannierTools/2.7.0
+
+---------------------------------------- Compiler dependent Modules -----------------------------------------
+   Abseil/20240722.0                 gnuplot/5.4.8                    occt/7.9.2
+   absl-py/2.1.0                     gnuplot/6.0.1           (D)      OPARI2/2.0.8
+   archspec/0.2.4                    GOTCHA/1.0.8                     OPARI2/2.0.9                (D)
+   assimp/5.4.3                      gperf/3.1                        OpenJPEG/2.5.2
+   at-spi2-atk/2.38.0                Graphene/1.10.8                  OpenMPI/5.0.3               (M)
+   at-spi2-core/2.54.0               Graphviz/12.2.0-minimal          optree/0.14.1
 
 [removed most of the output here for clarity]
 
   Where:
    L:        Module is loaded
+   TC:          Toolchain, comprising a compiler, possibly an MPI implementation, and optional mathematical libraries
+   C:           Compiler
+   M:           MPI implementation
+   m:           Mathematical libraries
+   Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
    D:        Default Module
-   Aliases exist: foo/1.2.3 (1.2) means that
-             "module load foo/1.2" will load foo/1.2.3
+   N/A:      Alias cannot be loaded with current $MODULEPATH
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
 
 Use "module spider" to find all possible modules and extensions.
-Use "module keyword key1 key2 ..." to search for all possible modules matching
-any of the "keys".
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 ```
 
 If the software your Slurm script runs requires on a specific version
