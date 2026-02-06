@@ -1,0 +1,9 @@
+The CLAIX system provides the following different filesystems:
+
+| Access     | Type   | Capacity Quota             | File Quota | Backup          | Performance          |
+| ---------- | ------ | -------------------------- | ---------- | --------------- | -------------------- |
+| `$HOME`    | GPFS   | 250 GB                     | 1 mio.     | Tape (off-site) | :star:               |
+| `$WORK`    | GPFS   | 250 GB                     | 1 mio.     | Snapshots       | :star: :star:        |
+| `$HPCWORK` | Lustre | 1 TB                       | 1 mio.     | :x:             | :star: :star: :star: |
+| `$BEEOND`  | BeeGFS | 1.5 TB (HPC) / 682 GB (ML) |            | :x:             | :star: :star: :star: |
+| `$TMP`     | XFS    | 1.5 TB (HPC) / 682 GB (ML) |            | :x:             | :star: :star: :star: |

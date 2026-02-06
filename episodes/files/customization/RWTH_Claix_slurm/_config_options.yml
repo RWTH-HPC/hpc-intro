@@ -28,6 +28,7 @@ remote:
   module_python3: "Python"
   prompt: "ab123456@login23-1:~$"
   bash_shebang: "#!/bin/zsh"
+  quota: "r_quota"
 
 sched:
   name: "Slurm"
