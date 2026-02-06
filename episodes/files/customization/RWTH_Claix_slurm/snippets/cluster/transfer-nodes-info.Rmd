@@ -1,0 +1,9 @@
+::: callout
+For CLAIX-2023 the transfer nodes are as follows:
+
+- copy23-1.hpc.itc.rwth-aachen.de
+- copy23-2.hpc.itc.rwth-aachen.de
+
+Please check the presented SSH Key fingerprint against the [fingerprints
+published in our documentation](https://help.itc.rwth-aachen.de/service/rhr4fjjutttf/article/0a23d513f31b4cf1849986aaed475789/#fingerprints)
+:::

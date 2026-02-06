@@ -1,0 +1,6 @@
+::: callout
+Sometimes there is a Python interpreter installed to support administrative
+scripts on the nodes without the need to load extra software. However, the
+version of it may be very old and may not be stable (in case you are relying on
+special Python features).
+:::

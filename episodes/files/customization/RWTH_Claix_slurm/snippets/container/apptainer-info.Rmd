@@ -1,0 +1,1 @@
+The `apptainer` executable on CLAIX is installed directly as a system package and is available without loading additional modules.

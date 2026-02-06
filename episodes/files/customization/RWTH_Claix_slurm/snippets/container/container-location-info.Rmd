@@ -1,0 +1,1 @@
+For CLAIX it is recommended to keep container images on the `$WORK` filesystem.

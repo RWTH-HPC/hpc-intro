@@ -1,0 +1,16 @@
+On some systems, such as the systems at RWTH Aachen University, some
+default modules are automatically loaded for you at login and the 
+output may look like the following.
+
+```output
+Currently Loaded Modules:
+  1) GCCcore/13.3.0 (C)   4) intel-compilers/2024.2.0 (C)   7) imkl-FFTW/2024.2.0
+  2) zlib/1.3.1           5) impi/2021.13.0           (M)   8) NHRDEFAULT/2024a -> intel/2024a (TC)
+  3) binutils/2.42        6) imkl/2024.2.0            (m)
+
+  Where:
+   TC:          Toolchain, comprising a compiler, possibly an MPI implementation, and optional mathematical libraries
+   C:           Compiler
+   M:           MPI implementation
+   m:           Mathematical libraries
+```
