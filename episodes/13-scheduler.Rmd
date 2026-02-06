@@ -131,9 +131,8 @@ status, we check the queue using the command
 `r config$remote$prompt` `r config$sched$status` `r config$sched$flag$user`
 ```
 
-```output
-JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-    9 cpubase_b example-   user01  R       0:05      1 node1
+```{r, echo=FALSE, results='asis'}
+snippets('scheduler/basic-job-status-output.Rmd')
 ```
 
 We can see all the details of our job, most importantly that it is in the `R`
