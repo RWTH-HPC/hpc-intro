@@ -72,6 +72,7 @@ episodes:
   - 14-environment-variables.Rmd
   - 15-modules.Rmd
   - 16-transferring-files.Rmd
+  - 16a-filesystems.Rmd
   - 17-parallel.Rmd
   - 17a-container.Rmd
   - 18-resources.Rmd

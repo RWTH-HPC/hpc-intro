@@ -128,7 +128,7 @@ without an interconnect at all. Cloud servers are generally accessed
 by connecting to their services over the network. Multiple virtual
 machines may reside on individual physical machines. Typical tasks
 are driven by user connections from the outside to the various "front
-end" services (e.g. web sites) which pass traffic on to the "back
+end" services (e.g. websites) which pass traffic on to the "back
 end" servers (e.g. databases) to present results to users.
 
 ---
@@ -150,6 +150,65 @@ A collection of standalone computers that are networked together. They will
 frequently have software installed that allow the coordinated running of other
 software across all of these computers. This allows these networked computers
 to work together to accomplish computing tasks faster. 
+
+---
+
+# A cluster node
+
+.center[
+![A cluster (banana for scale)](../fig/jargon_cluster_node.svg)
+]
+
+- A *node* is a single computer, part of a larger supercomputer
+- Cluster nodes can have one or more CPUs and accelerator cards
+- Cluster nodes are interconnected through a fast network
+- All CPUs of a node can potentially share the main memory
+
+---
+
+# CPU vs. core
+
+- A core is the computational unit of a CPU
+- Pre-2000s most CPUs had a single core
+- Nowadays, most CPUs (even in your phone) has multiple cores
+- Different cores of the same CPU can make different calculations at the same time
+- The CPU can have multiple caches (hierarchies)
+  - Some are local to a single core (L1), some may be shared by multiple cores (L2/L3)
+
+---
+
+# Cache memory
+
+- Compared to the cores, access to main memory is slow
+- Cache memory is special fast memory on the CPU close to the core
+- Data in cache can be accessed much faster, but cache memory is much smaller
+- To be effective, data in cache memory needs to be reused multiple times
+
+---
+
+# Accelerators
+
+.center[
+![A GPU card (Source: bodnara.co.kr)](../fig/nvidia_tesla_gpu_300.jpg)
+]
+
+- Accelerators are extension cards to a node
+- Accelerators are special purpose for parallel computations
+- GPGPUs (General Purpose GPUs) dominate the market, but other exist
+- Accelerators are much faster in specific parallel computation
+  - Lots of parallelism needed to harness GPU performance
+
+---
+
+# CPU vs. GPU
+
+- CPU
+  - optimized for low latencies
+  - control logic for out-of-order and speculative execution
+
+- GPU
+  - optimized for data-parallel throughput
+  - suited for special kind of applications
 
 ---
 

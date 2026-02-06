@@ -1,0 +1,21 @@
+On CLAIX the following variables are available:
+
+- `$HOME` points to the home folder of the user, which is considered to be the most reliable. This filesystem is backed up daily on tape storage off-site the HPC facility.
+   Use this for data that are hard to reproduce and most valuable to you.
+
+- `$WORK` points to the "standard" working filesystem. This filesystem is not backed up, but provides a snapshot feature once per day for past seven days and once per week for the past 5 weeks.
+   Use this for everyday work items and software installations that you don't need to have backed up long-term and need reasonable performance.
+
+- `$HPCWORK` points to a high-capacity, high-performance filesystem. This filesystem is not backed up and provides no snapshots.
+  This filesystem is best suited for **large-file I/O** from **many processes**.
+  It is less suited for I/O of many small files.
+  Use this if your application does parallel I/O with multiple processes to larger files.
+
+- `$BEEOND` points to a BeeGFS-on-demand filesystem that is set up **on demand**, spanning the SSDs of the nodes of an exclusive, multi-node job.
+  To trigger the setup of this filesystem for your job, you need to pass `--beeond` to the `sbatch` command or add `#SBATCH --beeond` to your job file.
+  Use this if your job spans multiple nodes and you need I/O to many small files.
+  This filesystem is volatile, in that you need to **copy in** data at the beginning of the job, and **copy out** any data you need saved before the end of the job.
+
+- `$TMP` points to the local SSD disk of the node. The filesystem is not shared across nodes, so only practical for single-node jobs.
+  The SSD is fast and can handle small files.
+  This filesystem is volatile, in that you need to **copy in** data at the beginning of the job, and **copy out** any data you need saved before the end of the job.
