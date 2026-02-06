@@ -546,17 +546,15 @@ environment.</p>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    dnf update</span>
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>    <span class="co"># install compilers and build environments</span></span>
 <span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>    dnf group install <span class="st">"Development Tools"</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    <span class="co"># install wget to download files using HTTP.</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>    dnf install wget</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>    <span class="co"># Clean up any cached information, build files, etc.</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    dnf clean all</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    <span class="co"># Clean up any cached information, build files, etc.</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>    dnf clean all</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    echo <span class="st">"Here you would install your actual application you want to containerized</span></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>    echo <span class="st">"Here you would install your actual application you want to containerized</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>%runscript</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    <span class="co"># set up a default command inside your image to simplify batch scripts</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>    echo $<span class="st">"These were your arguments:"</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    exec echo <span class="st">"$@"</span></span></code></pre>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>%runscript</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>    <span class="co"># set up a default command inside your image to simplify batch scripts</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>    echo $<span class="st">"These were your arguments:"</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    exec echo <span class="st">"$@"</span></span></code></pre>
 </div>
 <p>The <code>%</code> symbol indicates different sections in your
 container definition. The <code>%post</code> section contains all shell
@@ -736,7 +734,7 @@ following template</a> for a hybrid model container.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You have to modify the template in three ways.</p>
 <ol style="list-style-type: decimal"><li>Install your own Python3 and the pip package manager (to take care
@@ -793,11 +791,11 @@ the container in this hybrid setup.</p>
 <div class="callout-content">
 <ul><li>Containers provide the means to move software installations between
 HPC systems.</li>
-<li>Some frameworks are already provided as container images by their
-vendors.</li>
+<li>Some frameworks (especially for AI) are already provided as
+container images by their vendors.</li>
 <li>Using MPI with containers can be tricky.</li>
-<li>Choose between “Containerized”, “Bind”, and “Hybrid” Model depending
-on your needs.</li>
+<li>Hybrid model is often the best choice between setup complexity and
+portability.</li>
 </ul></div>
 </div>
 </div>

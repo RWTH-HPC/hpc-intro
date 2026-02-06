@@ -430,7 +430,8 @@ you’re running or the results the remote machine sends back. We will use
 the Secure SHell protocol (or SSH) to open an encrypted network
 connection between two machines, allowing you to send &amp; receive text
 and data without having to worry about prying eyes.</p>
-<figure><img src="../fig/connect-to-remote.svg" max-width="50%" alt="Connect to cluster. " class="figure mx-auto d-block"><div class="figcaption">connect-to-remote.svg</div>
+<figure><img src="../fig/connect-to-remote.svg" max-width="50%" alt="Connect to cluster via the internet or network. " class="figure mx-auto d-block"><div class="figcaption">Connecting to a cluster via the internet or
+network.</div>
 </figure><p>SSH clients are usually command-line tools, where you provide the
 remote machine address as the only required argument. If your username
 on the remote system differs from what you use locally, you must provide
@@ -447,13 +448,13 @@ else intercepting your password is low, since logging your keystrokes
 requires a malicious exploit or physical access. For systems like
 <code>login23-1</code> running an SSH server, anybody on the network can
 log in, or try to. Since usernames are often public or easy to guess,
-your password is often the weakest link in the security chain. Many
-clusters therefore forbid password-based login, requiring instead that
-you generate and configure a public-private key pair with a much
-stronger password. Even if your cluster does not require it, the next
-section will guide you through the use of SSH keys and an SSH agent to
-both strengthen your security <em>and</em> make it more convenient to
-log in to remote systems.</p>
+<strong>your password is often the weakest link in the security
+chain</strong>. Many clusters therefore forbid password-based login,
+requiring instead that you generate and configure a public-private key
+pair with a much stronger password. Even if your cluster does not
+require it, the next section will guide you through the use of SSH keys
+and an SSH agent to both strengthen your security <em>and</em> make it
+more convenient to log in to remote systems.</p>
 <div class="section level3">
 <h3 id="better-security-with-ssh-keys">Better Security With SSH Keys<a class="anchor" aria-label="anchor" href="#better-security-with-ssh-keys"></a></h3>
 <p>The <a href="index.html#setup">Lesson Setup</a> provides instructions for

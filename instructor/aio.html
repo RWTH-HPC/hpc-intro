@@ -536,7 +536,7 @@ results.</p>
   Some Ideas
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>Checking email: your computer (possibly in your pocket) contacts a
@@ -645,7 +645,8 @@ you’re running or the results the remote machine sends back. We will use
 the Secure SHell protocol (or SSH) to open an encrypted network
 connection between two machines, allowing you to send &amp; receive text
 and data without having to worry about prying eyes.</p>
-<figure><img src="../fig/connect-to-remote.svg" max-width="50%" alt="Connect to cluster. " class="figure mx-auto d-block"><div class="figcaption">connect-to-remote.svg</div>
+<figure><img src="../fig/connect-to-remote.svg" max-width="50%" alt="Connect to cluster via the internet or network. " class="figure mx-auto d-block"><div class="figcaption">Connecting to a cluster via the internet or
+network.</div>
 </figure><p>SSH clients are usually command-line tools, where you provide the
 remote machine address as the only required argument. If your username
 on the remote system differs from what you use locally, you must provide
@@ -662,13 +663,13 @@ else intercepting your password is low, since logging your keystrokes
 requires a malicious exploit or physical access. For systems like
 <code>login23-1</code> running an SSH server, anybody on the network can
 log in, or try to. Since usernames are often public or easy to guess,
-your password is often the weakest link in the security chain. Many
-clusters therefore forbid password-based login, requiring instead that
-you generate and configure a public-private key pair with a much
-stronger password. Even if your cluster does not require it, the next
-section will guide you through the use of SSH keys and an SSH agent to
-both strengthen your security <em>and</em> make it more convenient to
-log in to remote systems.</p>
+<strong>your password is often the weakest link in the security
+chain</strong>. Many clusters therefore forbid password-based login,
+requiring instead that you generate and configure a public-private key
+pair with a much stronger password. Even if your cluster does not
+require it, the next section will guide you through the use of SSH keys
+and an SSH agent to both strengthen your security <em>and</em> make it
+more convenient to log in to remote systems.</p>
 <div class="section level3">
 <h3 id="better-security-with-ssh-keys">Better Security With SSH Keys<a class="anchor" aria-label="anchor" href="#better-security-with-ssh-keys"></a>
 </h3>
@@ -1303,7 +1304,7 @@ neighbors.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> It’s a Beautiful Day in the Neighborhood </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The deepest layer should differ: <code>ab123456</code> is uniquely
 yours. Are there differences in the path at higher levels?</p>
@@ -1501,7 +1502,7 @@ computer cluster, you need to log out first. To do so, type
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>There are several ways to do this. Most operating systems have a
 graphical system monitor, like the Windows Task Manager. More detailed
@@ -1549,7 +1550,7 @@ node.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3026,7 +3027,7 @@ login node is loaded on a compute node).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3158,7 +3159,7 @@ the above commands to save the tarball as
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> wget and curl Commands </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3424,7 +3425,7 @@ that’s OK!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Commands </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3588,7 +3589,7 @@ page if you’re unsure.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3903,7 +3904,7 @@ output?</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Read the Job Output </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>The cluster output should be written to a file in the folder you
 launched the job from. For example,</p>
@@ -4080,7 +4081,7 @@ does that mean it finished in ¼ the time?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The parallel job did take <em>less</em> time: 11 seconds is better
 than 30! But it is only a 2.7× improvement, not 4×.</p>
@@ -4494,17 +4495,15 @@ environment.</p>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    dnf update</span>
 <span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>    <span class="co"># install compilers and build environments</span></span>
 <span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>    dnf group install <span class="st">"Development Tools"</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    <span class="co"># install wget to download files using HTTP.</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>    dnf install wget</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>    <span class="co"># Clean up any cached information, build files, etc.</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    dnf clean all</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    <span class="co"># Clean up any cached information, build files, etc.</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>    dnf clean all</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>    echo <span class="st">"Here you would install your actual application you want to containerized</span></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>    echo <span class="st">"Here you would install your actual application you want to containerized</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>%runscript</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    <span class="co"># set up a default command inside your image to simplify batch scripts</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>    echo $<span class="st">"These were your arguments:"</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>    exec echo <span class="st">"$@"</span></span></code></pre>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>%runscript</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>    <span class="co"># set up a default command inside your image to simplify batch scripts</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>    echo $<span class="st">"These were your arguments:"</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    exec echo <span class="st">"$@"</span></span></code></pre>
 </div>
 <p>The <code>%</code> symbol indicates different sections in your
 container definition. The <code>%post</code> section contains all shell
@@ -4695,7 +4694,7 @@ following template</a> for a hybrid model container.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You have to modify the template in three ways.</p>
 <ol style="list-style-type: decimal">
@@ -4755,11 +4754,11 @@ the container in this hybrid setup.</p>
 <ul>
 <li>Containers provide the means to move software installations between
 HPC systems.</li>
-<li>Some frameworks are already provided as container images by their
-vendors.</li>
+<li>Some frameworks (especially for AI) are already provided as
+container images by their vendors.</li>
 <li>Using MPI with containers can be tricky.</li>
-<li>Choose between “Containerized”, “Bind”, and “Hybrid” Model depending
-on your needs.</li>
+<li>Hybrid model is often the best choice between setup complexity and
+portability.</li>
 </ul>
 </div>
 </div>
@@ -4933,7 +4932,7 @@ close can you get?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The following line tells Slurm that our job should finish within 2
 minutes:</p>
