@@ -379,7 +379,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Using software via containers</h1>
-        <p>Last updated on 2026-04-28 |
+        <p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/17a-container.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -744,14 +744,14 @@ following template</a> for a hybrid model container.</p>
 <p>You have to modify the template in three ways.</p>
 <ol style="list-style-type: decimal"><li>Install your own Python3 and the pip package manager (to take care
 of dependencies) in line 35 of the template:
-<code>sh     dnf install python3 python3-pip</code>
+<code>sh  dnf install python3 python3-pip</code>
 </li>
 <li>Install amdahl directly from pip in line 38 of the template:
-<code>sh     python3 -m pip install amdahl</code>
+<code>sh  python3 -m pip install amdahl</code>
 </li>
 <li>configure the call to amdahl as the default execution for
 <code>apptainer run</code> in line 42 of the template:
-<code>sh     exec mpiexec "$@" /usr/bin/amdahl</code>
+<code>sh  exec mpiexec "$@" /usr/bin/amdahl</code>
 </li>
 </ol><p>You can find a <a href="files/amdahl-hybrid.def">full working
 container definition here</a>.</p>
@@ -865,8 +865,8 @@ portability.</li>
   "url": "https://carpentries-incubator.github.io/hpc-intro/17a-container.html",
   "identifier": "https://carpentries-incubator.github.io/hpc-intro/17a-container.html",
   "dateCreated": "2017-03-24",
-  "dateModified": "2026-04-28",
-  "datePublished": "2026-04-28"
+  "dateModified": "2026-05-05",
+  "datePublished": "2026-05-05"
 }
 
   </script><script>

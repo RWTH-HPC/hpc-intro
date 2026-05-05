@@ -432,7 +432,7 @@
         
 <section id="aio-10-hpc-intro"><p>Content from <a href="10-hpc-intro.html">Why use a Cluster?</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/10-hpc-intro.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -540,7 +540,7 @@ results.</p>
   Some Ideas
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Checking email: your computer (possibly in your pocket) contacts a
@@ -592,7 +592,7 @@ command line interface.</li>
 </div>
 </section></section><section id="aio-11-connecting"><p>Content from <a href="11-connecting.html">Connecting to a remote HPC system</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/11-connecting.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1150,7 +1150,7 @@ mounted filesystems, etc.).</li>
 </div>
 </section></section><section id="aio-12-cluster"><p>Content from <a href="12-cluster.html">Working on a remote HPC system</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/12-cluster.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1456,16 +1456,23 @@ c23g_low      up 30-00:00:0     11  alloc n23g[0002,0005,0007-0008,0010,0018-001
 c23i          up 30-00:00:0      1   idle n23i0001
 [...]</code></pre>
 </div>
-<p>::: callout The list of partitions above is truncated to the most
-relevant for standard users.</p>
+<div id="callout5" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>The list of partitions above is truncated to the most relevant for
+standard users.</p>
 <p>There are also specialized machines used for managing disk storage,
 user authentication, and other infrastructure-related tasks. Although we
 do not typically logon to or interact with these machines directly, they
 enable a number of key features like ensuring our user account and files
 are available throughout the HPC system.</p>
-</section><section><h2 class="section-heading" id="whats-in-a-node">What's in a Node?<a class="anchor" aria-label="anchor" href="#whats-in-a-node"></a>
+<div class="section level2">
+<h2 id="whats-in-a-node">What's in a Node?<a class="anchor" aria-label="anchor" href="#whats-in-a-node"></a>
 </h2>
-<hr class="half-width">
 <p>All of the nodes in an HPC system have the same components as your
 own laptop or desktop: <em>CPUs</em> (sometimes also called
 <em>processors</em> or <em>cores</em>), <em>memory</em> (or
@@ -1682,9 +1689,13 @@ network mounted filesystems, etc.).”</li>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 </section></section><section id="aio-13-scheduler"><p>Content from <a href="13-scheduler.html">Scheduler Fundamentals</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/13-scheduler.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1800,7 +1811,7 @@ node?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1972,7 +1983,7 @@ then submit a job for it on the cluster.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2107,7 +2118,7 @@ yourself). Note that you can only delete your own jobs.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>First, submit a trio of jobs:</p>
 <div class="codewrapper sourceCode" id="cb25">
@@ -2233,7 +2244,7 @@ users.</li>
 </div>
 </section></section><section id="aio-14-environment-variables"><p>Content from <a href="14-environment-variables.html">Environment Variables</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/14-environment-variables.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2434,7 +2445,7 @@ command. Do you notice any difference?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The <code>TIME_STYLE</code> variable is not <em>seen</em> by
 <code>ls</code> until is exported, at which point it is used by
@@ -2471,7 +2482,7 @@ prints out the location from which the job was submitted.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2572,7 +2583,7 @@ programs</li>
 </div>
 </section></section><section id="aio-15-modules"><p>Content from <a href="15-modules.html">Accessing software via Modules</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/15-modules.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3026,7 +3037,7 @@ login node is loaded on a compute node).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3073,7 +3084,7 @@ for you automatically.</li>
 </div>
 </section></section><section id="aio-16-transferring-files"><p>Content from <a href="16-transferring-files.html">Transferring files with remote computers</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/16-transferring-files.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3157,7 +3168,7 @@ the above commands to save the tarball as
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> wget and curl Commands </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3423,7 +3434,7 @@ that’s OK!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Commands </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3587,7 +3598,7 @@ page if you’re unsure.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3659,7 +3670,7 @@ a GUI.</li>
 </div>
 </section></section><section id="aio-16a-filesystems"><p>Content from <a href="16a-filesystems.html">Navigating and selecting filesystems</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/16a-filesystems.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3888,7 +3899,7 @@ metadata server and deteriorate overall filesystem performance for
 <col width="17%">
 <col width="22%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Access</th>
 <th>Type</th>
 <th>Capacity Quota</th>
@@ -3897,7 +3908,7 @@ metadata server and deteriorate overall filesystem performance for
 <th>Performance</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>$HOME</code></td>
 <td>GPFS</td>
 <td>250 GB</td>
@@ -3905,7 +3916,7 @@ metadata server and deteriorate overall filesystem performance for
 <td>Tape (off-site)</td>
 <td><span class="emoji" data-emoji="star">⭐</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>$WORK</code></td>
 <td>GPFS</td>
 <td>250 GB</td>
@@ -3915,7 +3926,7 @@ metadata server and deteriorate overall filesystem performance for
 <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span>
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$HPCWORK</code></td>
 <td>Lustre</td>
 <td>1 TB</td>
@@ -3925,7 +3936,7 @@ metadata server and deteriorate overall filesystem performance for
 <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span>
 </td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>$BEEOND</code></td>
 <td>BeeGFS</td>
 <td>1.5 TB (HPC) / 682 GB (ML)</td>
@@ -3935,7 +3946,7 @@ metadata server and deteriorate overall filesystem performance for
 <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span> <span class="emoji" data-emoji="star">⭐</span>
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$TMP</code></td>
 <td>XFS</td>
 <td>1.5 TB (HPC) / 682 GB (ML)</td>
@@ -3967,7 +3978,7 @@ reliable file system</li>
 </div>
 </section></section><section id="aio-17-parallel"><p>Content from <a href="17-parallel.html">Running a parallel job</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/17-parallel.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -4521,20 +4532,20 @@ write its output first, except that it will <em>not</em> be process
 </div>
 <p>Now, let’s summarize the amount of time it took each job to run:</p>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th>Number of CPUs</th>
 <th>Runtime (sec)</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>30.033</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>10.888</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>8</td>
 <td>7.697</td>
 </tr>
@@ -4551,23 +4562,23 @@ S(t_{n}) = \frac{t_{1}}{t_{n}}
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" tabindex="-1" aria-label="code-block-33-1"></a><span class="ex">ab123456@login23-1:~$</span> for n in 30.033 10.888 7.697<span class="kw">;</span> <span class="cf">do</span> <span class="ex">python3</span> <span class="at">-c</span> <span class="st">"print(30.033 / </span><span class="va">$n</span><span class="st">)"</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
 </div>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th>Number of CPUs</th>
 <th>Speedup</th>
 <th>Ideal</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>1.0</td>
 <td>1</td>
 </tr>
-<tr class="even">
+<tr>
 <td>4</td>
 <td>2.75</td>
 <td>4</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>8</td>
 <td>3.90</td>
 <td>8</td>
@@ -4614,7 +4625,7 @@ linearly.</li>
 </div>
 </section></section><section id="aio-17a-container"><p>Content from <a href="17a-container.html">Using software via containers</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/17a-container.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -5004,14 +5015,14 @@ following template</a> for a hybrid model container.</p>
 <ol style="list-style-type: decimal">
 <li>Install your own Python3 and the pip package manager (to take care
 of dependencies) in line 35 of the template:
-<code>sh     dnf install python3 python3-pip</code>
+<code>sh  dnf install python3 python3-pip</code>
 </li>
 <li>Install amdahl directly from pip in line 38 of the template:
-<code>sh     python3 -m pip install amdahl</code>
+<code>sh  python3 -m pip install amdahl</code>
 </li>
 <li>configure the call to amdahl as the default execution for
 <code>apptainer run</code> in line 42 of the template:
-<code>sh     exec mpiexec "$@" /usr/bin/amdahl</code>
+<code>sh  exec mpiexec "$@" /usr/bin/amdahl</code>
 </li>
 </ol>
 <p>You can find a <a href="files/amdahl-hybrid.def">full working
@@ -5070,7 +5081,7 @@ portability.</li>
 </div>
 </section></section><section id="aio-18-resources"><p>Content from <a href="18-resources.html">Using resources effectively</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/18-resources.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -5264,7 +5275,7 @@ shared resources.</li>
 </div>
 </section></section><section id="aio-19-responsibility"><p>Content from <a href="19-responsibility.html">Using shared resources responsibly</a></p>
 <hr>
-<p>Last updated on 2026-04-28 |
+<p>Last updated on 2026-05-05 |
 
         <a href="https://github.com/carpentries-incubator/hpc-intro/edit/main/episodes/19-responsibility.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -5682,8 +5693,8 @@ before transferring.</li>
   "url": "https://carpentries-incubator.github.io/hpc-intro/aio.html",
   "identifier": "https://carpentries-incubator.github.io/hpc-intro/aio.html",
   "dateCreated": "2017-03-24",
-  "dateModified": "2026-04-28",
-  "datePublished": "2026-04-28"
+  "dateModified": "2026-05-05",
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
